@@ -33,7 +33,7 @@
   🌐 Instalación de Apache
   Para instalar Apache, ejecuta el siguiente comando:
   sudo apt install apache2
-  (./imgs/img1.png)
+  ![paso1](./imgs/img1.png)
   Para confirmar que funciona correctamente, abre tu navegador y escribe:
   http://localhost
   (./imgs/img2.png)
@@ -103,5 +103,6 @@
   http://your_domain
   (./imgs/img18.png)
   ✅ ¡Tu nuevo sitio web está activo y funcionando correctamente bajo Apache!
+
 
 
