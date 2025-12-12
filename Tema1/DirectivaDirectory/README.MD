@@ -106,5 +106,3 @@ Bloquea específicamente cualquier cliente cuyo nombre de host coincida con mari
  <p align="center">
       <img src="./images/09.png" alt="paso1">
     </p>
-    
-- [Volver al índice principal](../README.md)
