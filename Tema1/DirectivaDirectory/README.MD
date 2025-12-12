@@ -1,4 +1,4 @@
-### 📁 Ejercicio 5: Directiva directory
+### Ejercicio 5: Directiva directory
 
 1. Crea un directorio llamado "dir1" y otro llamado "dir2"
 
@@ -106,3 +106,4 @@ Bloquea específicamente cualquier cliente cuyo nombre de host coincida con mari
  <p align="center">
       <img src="./images/09.png" alt="paso1">
     </p>
+
