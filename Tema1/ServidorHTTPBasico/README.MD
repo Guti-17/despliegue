@@ -2,9 +2,9 @@
 
 
 
-!\[Primer ejercicio](./images/01\_primerEjercicio.PNG)
+!\[Primer ejercicio](./images/01_primerEjercicio.PNG)
 
-!\[Resultado del primer ejercicio](./images/02\_PrimerEjercicio.PNG)
+!/[Resultado del primer ejercicio](./images/02_PrimerEjercicio.PNG)
 
 
 
@@ -17,4 +17,5 @@
 2\. Ejecutar el comando `python -m http.server 8000`
 
 3\. Acceder a la dirección `http://localhost:8000` en el navegador
+
 
