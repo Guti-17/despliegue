@@ -9,4 +9,3 @@
 3. Navegar a la ruta donde se encuentra el código
 4. Ejecutar el archivo Python y verificar el funcionamiento del servidor
 
-- [Volver al índice principal](../README.md)
