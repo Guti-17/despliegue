@@ -202,4 +202,3 @@ Y por ultimo reiniciamos apache con `sudo systemctl restart apache2`
   <img src="./images/39.png" alt="paso39">
 </p>
 
-- [Volver al índice principal](../README.md)
