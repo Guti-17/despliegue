@@ -1,4 +1,4 @@
-### 📁 Ejercicio 1: Servidor HTTP básico
+### Ejercicio 1: Servidor HTTP básico
 
 ![Primer ejercicio](./images/01_primerEjercicio.PNG)
 ![Resultado del primer ejercicio](./images/02_PrimerEjercicio.PNG)
@@ -10,3 +10,4 @@
 3. Acceder a la dirección `http://localhost:8000` en el navegador
 
 - [Volver al índice principal](../README.md)
+
