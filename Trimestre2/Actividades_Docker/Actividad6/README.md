@@ -14,12 +14,12 @@ Recopilación de todas las prácticas realizadas a lo largo del curso sobre Dock
 
 | Práctica | Tema | Enlace |
 |---|---|---|
-| Práctica 1 | Instalación y configuración de Docker | [Abrir](practica1/README.md) |
-| Práctica 2 | Ciclo de vida y gestión de contenedores | [Abrir](practica2/README.md) |
-| Práctica 3 | Imágenes y administración local | [Abrir](practica3/README.md) |
-| Práctica 4 | Almacenamiento persistente y redes | [Abrir](practica4/README.md) |
-| Práctica 5 | Orquestación con Docker Compose | [Abrir](practica5/README.md) |
-| Práctica 6 | Creación de imágenes personalizadas | [Abrir](practica6/README.md) |
+| Práctica 1 | Instalación y configuración de Docker | [Abrir](Actividad1/README.md) |
+| Práctica 2 | Ciclo de vida y gestión de contenedores | [Abrir](Actividad2/README.md) |
+| Práctica 3 | Imágenes y administración local | [Abrir](Actividad3/README.md) |
+| Práctica 4 | Almacenamiento persistente y redes | [Abrir](Actividad4/README.md) |
+| Práctica 5 | Orquestación con Docker Compose | [Abrir](Actividad5/README.md) |
+| Práctica 6 | Creación de imágenes personalizadas | [Abrir](Actividad6/README.md) |
 
 ---
 
