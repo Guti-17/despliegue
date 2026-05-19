@@ -14,12 +14,12 @@ Recopilación de todas las prácticas realizadas a lo largo del curso sobre Dock
 
 | Actividad | Tema | Enlace |
 |---|---|---|
-| Actividad 1 | Instalación y configuración de Docker | [Abrir](Actividad1/README.md) |
-| Actividad 2 | Ciclo de vida y gestión de contenedores | [Abrir](Actividad2/README.md) |
-| Actividad 3 | Imágenes y administración local | [Abrir](Actividad3/README.md) |
-| Actividad 4 | Almacenamiento persistente y redes | [Abrir](Actividad4/README.md) |
-| Actividad 5 | Orquestación con Docker Compose | [Abrir](Actividad5/README.md) |
-| Actividad 6 | Creación de imágenes personalizadas | [Abrir](Actividad6/README.md) |
+| Actividad 1 | Instalación y configuración de Docker | [Abrir](../Actividad1/README.md) |
+| Actividad 2 | Ciclo de vida y gestión de contenedores | [Abrir](../Actividad2/README.md) |
+| Actividad 3 | Imágenes y administración local | [Abrir](../Actividad3/README.md) |
+| Actividad 4 | Almacenamiento persistente y redes | [Abrir](../Actividad4/README.md) |
+| Actividad 5 | Orquestación con Docker Compose | [Abrir](../Actividad5/README.md) |
+| Actividad 6 | Creación de imágenes personalizadas | [Abrir](../Actividad6/README.md) |
 
 ---
 
