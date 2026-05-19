@@ -46,6 +46,9 @@ RESULTADO
 - Conexión de red verificada.
 - Directorios del proyecto creados.
 
+![](images/paso1.png)
+![](images/paso2.png)
+
 ==================================================
 2. INSTALACIÓN DE APACHE2, PHP Y MARIADB
 ==================================================
@@ -81,6 +84,9 @@ RESULTADO
 - Servicio MariaDB operativo.
 - phpMyAdmin accesible desde el navegador.
 
+![](images/paso3.png)
+![](images/paso4.png)
+
 ==================================================
 3. AUTOMATIZACIÓN DE CREACIÓN DE CLIENTES
 ==================================================
@@ -106,6 +112,9 @@ PROCESOS AUTOMATIZADOS
 - Registro automático en DNS.
 - Creación de bases de datos MySQL.
 - Generación de contraseñas seguras.
+
+![](images/paso5.png)
+![](images/paso6.png)
 
 ==================================================
 4. FTP SEGURO, SSH/SFTP Y SOPORTE PYTHON
@@ -150,6 +159,9 @@ RESULTADO
 - SSH y SFTP funcionando correctamente.
 - Compatibilidad con aplicaciones Python vía mod_wsgi.
 
+![](images/paso7.png)
+![](images/paso8.png)
+
 ==================================================
 5. CONFIGURACIÓN DNS CON BIND9
 ==================================================
@@ -192,6 +204,9 @@ RESULTADO
 - Resolución directa operativa.
 - Resolución inversa funcionando correctamente.
 - Integración automática con el script de clientes.
+
+![](images/paso9.png)
+![](images/paso10.png)
 
 ==================================================
 6. COMPROBACIÓN COMPLETA DEL SISTEMA
