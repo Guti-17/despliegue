@@ -1,91 +1,59 @@
-# 🐳 Práctica Docker #1 — Despliegue y configuración de Docker en Ubuntu
-
-## 👨‍💻 Autor
+# 🐳 Docker — Práctica 1: Instalación de Docker Engine en Ubuntu
 
 **Arturo Gutierrez Sanchez**
 
 ---
 
-# 📌 Objetivo de la práctica
+## ¿Qué se hace en esta práctica?
 
-Instalar Docker Engine sobre Ubuntu 24.04 LTS, preparar el entorno de trabajo y comprobar el correcto funcionamiento del sistema de contenedores mediante pruebas elementales.
-
----
-
-# 🖥️ Entorno de trabajo
-
-| Componente            | Detalle          |
-| --------------------- | ---------------- |
-| Sistema operativo     | Ubuntu 24.04 LTS |
-| Arquitectura          | x86_64           |
-| Plataforma            | VirtualBox       |
-| Motor de contenedores | Docker CE        |
-| Usuario del sistema   | arturo           |
+El objetivo es dejar Docker completamente operativo sobre Ubuntu 24.04 LTS: desde la actualización del sistema hasta ejecutar el primer contenedor real. Al terminar, el entorno quedará listo para trabajar con contenedores sin necesidad de permisos de superusuario.
 
 ---
 
-# ⚙️ 1. Puesta al día del sistema
+## Entorno de trabajo
 
-Antes de proceder con la instalación de Docker, se actualiza la lista de paquetes y el software del sistema.
+| Campo | Valor |
+|---|---|
+| Sistema operativo | Ubuntu 24.04 LTS |
+| Arquitectura | x86_64 |
+| Plataforma de virtualización | VirtualBox |
+| Motor de contenedores | Docker CE |
+| Usuario del sistema | arturo |
 
-## 💻 Comandos utilizados
+---
+
+## Preparación del sistema
+
+Antes de instalar nada, actualizamos el índice de paquetes y el software instalado para evitar conflictos de dependencias:
 
 ```bash
 sudo apt update
 sudo apt upgrade -y
 ```
 
-## ✅ Resultado obtenido
-
-* Sistema operativo actualizado sin errores.
-* Repositorios refrescados correctamente.
-* Dependencias del sistema preparadas.
-
----
-
-# 📦 2. Instalación de dependencias necesarias
-
-Docker requiere una serie de herramientas previas para gestionar repositorios seguros mediante HTTPS y claves GPG.
-
-## 💻 Instalación
+A continuación instalamos las herramientas que Docker necesita para trabajar con repositorios HTTPS y verificar firmas GPG:
 
 ```bash
 sudo apt install -y \
-apt-transport-https \
-ca-certificates \
-curl \
-gnupg \
-lsb-release
+  apt-transport-https \
+  ca-certificates \
+  curl \
+  gnupg \
+  lsb-release
 ```
-
-## ✅ Resultado obtenido
-
-Todos los paquetes requeridos se instalaron sin incidencias ni conflictos de dependencias.
 
 ---
 
-# 🔑 3. Importación de la clave GPG oficial de Docker
+## Añadir el repositorio oficial de Docker
 
-Se descarga e importa la clave criptográfica de Docker para garantizar la integridad y autenticidad del repositorio.
-
-## 💻 Comando ejecutado
+Docker no está en los repositorios por defecto de Ubuntu, así que hay que registrar el suyo propio. Primero importamos su clave criptográfica para que el sistema confíe en los paquetes que descargue de él:
 
 ```bash
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | \
 sudo gpg --dearmor -o /usr/share/keyrings/docker.gpg
 ```
 
-## ✅ Resultado obtenido
-
-La clave GPG quedó guardada correctamente en el almacén del sistema.
-
----
-
-# 🌐 4. Registro del repositorio oficial de Docker
-
-Se añade el repositorio estable de Docker Community Edition a las fuentes del sistema.
-
-## 💻 Configuración aplicada
+Después registramos el repositorio estable de Docker Community Edition:
 
 ```bash
 echo \
@@ -95,180 +63,111 @@ $(lsb_release -cs) stable" | \
 sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 ```
 
-## ✅ Resultado obtenido
-
-El repositorio fue añadido satisfactoriamente al sistema de paquetes.
-
 ---
 
-# 🐳 5. Instalación del motor Docker
+## Instalación de Docker Engine
 
-Se instala Docker Engine junto con sus componentes esenciales.
-
-## 💻 Instalación
+Con el repositorio ya disponible, actualizamos el índice de paquetes e instalamos Docker junto con sus componentes principales:
 
 ```bash
 sudo apt update
 
 sudo apt install -y \
-docker-ce \
-docker-ce-cli \
-containerd.io \
-docker-compose-plugin
+  docker-ce \
+  docker-ce-cli \
+  containerd.io \
+  docker-compose-plugin
 ```
 
-## ✅ Resultado obtenido
-
-Docker CE instalado con éxito, incluyendo el complemento de Docker Compose.
-
----
-
-# 🔎 6. Comprobación de la instalación
-
-Se verifica que Docker está correctamente instalado consultando su versión.
-
-## 💻 Verificación
+Verificamos que la instalación se completó correctamente consultando la versión:
 
 ```bash
 docker --version
 ```
 
-## ✅ Salida esperada
-
-```bash
+```text
 Docker version 29.x.x
 ```
 
 ---
 
-# 🔐 7. Configuración de ejecución sin privilegios de superusuario
+## Configurar Docker para usarlo sin sudo
 
-Para poder utilizar Docker sin necesidad de anteponer `sudo`, se agrega el usuario al grupo `docker`.
-
-## 💻 Pasos realizados
+Por defecto, los comandos Docker requieren privilegios de administrador. Para evitarlo, añadimos nuestro usuario al grupo `docker`:
 
 ```bash
 sudo groupadd docker
-
 sudo usermod -aG docker $USER
-
 newgrp docker
 ```
 
-## ✅ Resultado obtenido
-
-El usuario fue incorporado al grupo Docker de forma correcta.
+A partir de aquí todos los comandos `docker` funcionan sin anteponer `sudo`.
 
 ---
 
-# 🚀 8. Ejecución del primer contenedor: hello-world
+## Primera prueba: contenedor hello-world
 
-Se lanza el contenedor de prueba oficial para confirmar que el daemon Docker responde correctamente.
-
-## 💻 Comando
+Ejecutamos el contenedor oficial de prueba para confirmar que el daemon responde correctamente:
 
 ```bash
 docker run hello-world
 ```
 
-## ✅ Resultado obtenido
-
-Docker descargó la imagen automáticamente y ejecutó el contenedor sin ningún problema.
+Docker descarga la imagen automáticamente si no la tiene en local y lanza el contenedor. Si aparece el mensaje de bienvenida de Docker, la instalación es correcta.
 
 ---
 
-# 📊 9. Revisión del estado del sistema Docker
+## Revisión del estado del sistema
 
-## Consultar estado del servicio
+Con Docker ya en marcha, conviene conocer los comandos básicos de diagnóstico:
 
 ```bash
+# Estado del servicio en systemd
 sudo systemctl status docker
-```
 
-## Ver información completa del entorno
-
-```bash
+# Información completa del daemon y el entorno
 docker info
-```
 
-## Listar todos los contenedores
-
-```bash
+# Contenedores existentes (activos y parados)
 docker ps -a
-```
 
-## Ver imágenes almacenadas localmente
-
-```bash
+# Imágenes descargadas localmente
 docker images
 ```
 
-## ✅ Resultado obtenido
-
-* Servicio Docker activo y operativo.
-* Daemon en funcionamiento.
-* Imagen `hello-world` disponible localmente.
-
 ---
 
-# ⚡ 10. Activar Docker en el arranque del sistema
+## Arranque automático con el sistema
 
-## 💻 Comando
+Para que Docker se inicie solo cada vez que arranque la máquina:
 
 ```bash
 sudo systemctl enable docker
 ```
 
-## ✅ Resultado obtenido
+---
 
-Docker se inicia automáticamente cada vez que el sistema arranca.
+## Resumen de verificaciones
+
+| Comprobación | Estado |
+|---|---|
+| Docker Engine instalado | ✅ |
+| Daemon activo y operativo | ✅ |
+| Contenedor hello-world ejecutado | ✅ |
+| Usuario configurado sin sudo | ✅ |
+| Docker Compose disponible | ✅ |
+| Arranque automático habilitado | ✅ |
 
 ---
 
-# 🧪 Resumen de verificaciones
+## Medidas de seguridad aplicadas
 
-| Comprobación              | Estado |
-| ------------------------- | ------ |
-| Docker instalado          | ✅      |
-| Daemon activo             | ✅      |
-| Contenedor ejecutado      | ✅      |
-| Usuario sin sudo          | ✅      |
-| Docker Compose disponible | ✅      |
-| Servicio persistente      | ✅      |
+- Repositorio registrado con firma GPG verificada, no descargado de fuentes no oficiales
+- Permisos gestionados a través del grupo `docker` en lugar de ejecutar como root
+- Servicio administrado por systemd, con arranque controlado y trazabilidad de estado
 
 ---
 
-# 📚 Referencia de comandos empleados
+## Conclusión
 
-```bash
-docker --version
-docker info
-docker ps -a
-docker images
-docker run hello-world
-sudo systemctl status docker
-sudo systemctl enable docker
-```
-
----
-
-# 🔒 Medidas de seguridad aplicadas
-
-* Uso exclusivo del repositorio oficial de Docker
-* Verificación de integridad mediante clave GPG
-* Gestión de permisos a través del grupo `docker`
-* Administración del servicio con systemd
-
----
-
-# 📈 Conclusión
-
-La instalación y puesta en marcha de Docker sobre Ubuntu 24.04 se completó sin contratiempos, dejando el entorno preparado para:
-
-* Lanzar y gestionar contenedores
-* Administrar imágenes Docker locales
-* Controlar el daemon del sistema
-* Operar sin necesidad de permisos de root
-* Continuar con actividades y prácticas futuras
-
----
+Tras completar esta práctica el sistema dispone de Docker CE completamente funcional: el daemon corre como servicio del sistema, el usuario puede operar sin privilegios elevados y el entorno está preparado para continuar con las siguientes prácticas.
